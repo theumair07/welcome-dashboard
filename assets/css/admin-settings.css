@@ -1,0 +1,621 @@
+/**
+ * Welcome Dashboard - Admin Settings CSS
+ * Advanced Modern Design - Clean, Minimal, Sophisticated
+ */
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* CSS Variables - Refined Palette */
+:root {
+    /* Primary Colors */
+    --wdw-primary: #3b82f6;
+    --wdw-primary-hover: #2563eb;
+    --wdw-primary-light: #eff6ff;
+
+    /* Neutral Colors */
+    --wdw-white: #ffffff;
+    --wdw-gray-25: #fcfcfd;
+    --wdw-gray-50: #f9fafb;
+    --wdw-gray-100: #f3f4f6;
+    --wdw-gray-200: #e5e7eb;
+    --wdw-gray-300: #d1d5db;
+    --wdw-gray-400: #9ca3af;
+    --wdw-gray-500: #6b7280;
+    --wdw-gray-600: #4b5563;
+    --wdw-gray-700: #374151;
+    --wdw-gray-800: #1f2937;
+    --wdw-gray-900: #111827;
+
+    /* Semantic Colors */
+    --wdw-success: #10b981;
+    --wdw-success-light: #ecfdf5;
+    --wdw-warning: #f59e0b;
+    --wdw-warning-light: #fffbeb;
+    --wdw-danger: #ef4444;
+    --wdw-danger-light: #fef2f2;
+
+    /* Role Colors */
+    --wdw-role-admin: #ef4444;
+    --wdw-role-editor: #3b82f6;
+    --wdw-role-author: #10b981;
+    --wdw-role-contributor: #f59e0b;
+    --wdw-role-subscriber: #8b5cf6;
+
+    /* Shadows - Layered for depth */
+    --wdw-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --wdw-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --wdw-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --wdw-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --wdw-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+    /* Border Radius */
+    --wdw-radius-sm: 6px;
+    --wdw-radius-md: 8px;
+    --wdw-radius-lg: 12px;
+    --wdw-radius-xl: 16px;
+
+    /* Transitions */
+    --wdw-transition-fast: 150ms ease;
+    --wdw-transition-base: 200ms ease;
+    --wdw-transition-slow: 300ms ease;
+}
+
+/* ================================================
+   BASE STYLES
+   ================================================ */
+.umy-wdw-admin-wrap {
+    max-width: 1000px;
+    margin: 15px auto;
+    padding: 0 24px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--wdw-gray-700);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.umy-wdw-admin-wrap * {
+    box-sizing: border-box;
+}
+
+/* ================================================
+   HEADER SECTION (inside card)
+   ================================================ */
+.umy-wdw-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    border-bottom: 1px solid var(--wdw-gray-100);
+}
+
+.umy-wdw-header-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--wdw-gray-900);
+    border-radius: var(--wdw-radius-lg);
+    flex-shrink: 0;
+}
+
+.umy-wdw-header-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--wdw-white);
+}
+
+.umy-wdw-header-text h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--wdw-gray-900);
+    margin: 0 0 4px 0;
+    letter-spacing: -0.025em;
+}
+
+.umy-wdw-header-text p {
+    font-size: 14px;
+    color: var(--wdw-gray-500);
+    margin: 0;
+}
+
+/* ================================================
+   NOTICE MESSAGES
+   ================================================ */
+.umy-wdw-notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: var(--wdw-radius-md);
+    margin-bottom: 24px;
+    border: 1px solid;
+}
+
+.umy-wdw-notice-success {
+    background: var(--wdw-success-light);
+    border-color: #a7f3d0;
+    color: #065f46;
+}
+
+.umy-wdw-notice-warning {
+    background: var(--wdw-warning-light);
+    border-color: #fcd34d;
+    color: #92400e;
+}
+
+.umy-wdw-notice-icon {
+    flex-shrink: 0;
+    display: flex;
+}
+
+.umy-wdw-notice-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.umy-wdw-notice-content {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.umy-wdw-notice-content strong {
+    font-weight: 600;
+}
+
+/* ================================================
+   CARDS
+   ================================================ */
+.umy-wdw-card {
+    background: var(--wdw-white);
+    border: 1px solid var(--wdw-gray-200);
+    border-radius: var(--wdw-radius-xl);
+    box-shadow: var(--wdw-shadow-sm);
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.umy-wdw-card-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--wdw-gray-100);
+}
+
+.umy-wdw-card-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--wdw-gray-900);
+    margin: 0 0 4px 0;
+    letter-spacing: -0.01em;
+}
+
+.umy-wdw-card-header p {
+    font-size: 13px;
+    color: var(--wdw-gray-500);
+    margin: 0;
+}
+
+.umy-wdw-card-body {
+    padding: 0;
+}
+
+.umy-wdw-card-footer {
+    padding: 16px 24px;
+    background: var(--wdw-gray-50);
+    border-top: 1px solid var(--wdw-gray-100);
+}
+
+/* ================================================
+   SETTINGS TABLE
+   ================================================ */
+.umy-wdw-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.umy-wdw-table thead th {
+    padding: 12px 24px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--wdw-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--wdw-gray-50);
+    border-bottom: 1px solid var(--wdw-gray-200);
+}
+
+.umy-wdw-table tbody tr {
+    transition: background var(--wdw-transition-fast);
+}
+
+.umy-wdw-table tbody tr:hover {
+    background: var(--wdw-gray-25);
+}
+
+.umy-wdw-table tbody td {
+    padding: 16px 24px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--wdw-gray-100);
+}
+
+.umy-wdw-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ================================================
+   ROLE BADGES - Colored with Icons
+   ================================================ */
+.umy-wdw-role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--wdw-gray-100);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--wdw-gray-700);
+    transition: all var(--wdw-transition-fast);
+}
+
+.umy-wdw-role-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--wdw-gray-400);
+}
+
+/* Role-specific colors - dismiss button style with light bg */
+tr:nth-child(1) .umy-wdw-role-badge {
+    background: #fef2f2;
+    color: var(--wdw-role-admin);
+}
+
+tr:nth-child(1) .umy-wdw-role-badge::before {
+    background: var(--wdw-role-admin);
+}
+
+tr:nth-child(2) .umy-wdw-role-badge {
+    background: #eff6ff;
+    color: var(--wdw-role-editor);
+}
+
+tr:nth-child(2) .umy-wdw-role-badge::before {
+    background: var(--wdw-role-editor);
+}
+
+tr:nth-child(3) .umy-wdw-role-badge {
+    background: #ecfdf5;
+    color: var(--wdw-role-author);
+}
+
+tr:nth-child(3) .umy-wdw-role-badge::before {
+    background: var(--wdw-role-author);
+}
+
+tr:nth-child(4) .umy-wdw-role-badge {
+    background: #fffbeb;
+    color: var(--wdw-role-contributor);
+}
+
+tr:nth-child(4) .umy-wdw-role-badge::before {
+    background: var(--wdw-role-contributor);
+}
+
+tr:nth-child(5) .umy-wdw-role-badge {
+    background: #f5f3ff;
+    color: var(--wdw-role-subscriber);
+}
+
+tr:nth-child(5) .umy-wdw-role-badge::before {
+    background: var(--wdw-role-subscriber);
+}
+
+/* ================================================
+   SELECT / DROPDOWN
+   ================================================ */
+.umy-wdw-select-wrap {
+    position: relative;
+    max-width: 280px;
+}
+
+.umy-wdw-select {
+    width: 100%;
+    padding: 10px 36px 10px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--wdw-gray-700);
+    background: var(--wdw-white);
+    border: 1px solid var(--wdw-gray-300);
+    border-radius: var(--wdw-radius-md);
+    cursor: pointer;
+    appearance: none;
+    transition: all var(--wdw-transition-fast);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+
+.umy-wdw-select:hover {
+    border-color: var(--wdw-gray-400);
+}
+
+.umy-wdw-select:focus {
+    outline: none;
+    border-color: var(--wdw-primary);
+    box-shadow: 0 0 0 3px var(--wdw-primary-light);
+}
+
+.umy-wdw-select optgroup {
+    font-weight: 600;
+    color: var(--wdw-gray-900);
+}
+
+.umy-wdw-select option {
+    padding: 8px;
+}
+
+/* ================================================
+   TOGGLE SWITCH - Modern & Clean
+   ================================================ */
+.umy-wdw-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.umy-wdw-toggle input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.umy-wdw-toggle-slider {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background: var(--wdw-gray-300);
+    border-radius: 24px;
+    transition: background var(--wdw-transition-base);
+}
+
+.umy-wdw-toggle-slider::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--wdw-white);
+    border-radius: 50%;
+    box-shadow: var(--wdw-shadow-sm);
+    transition: transform var(--wdw-transition-base);
+}
+
+.umy-wdw-toggle input:checked+.umy-wdw-toggle-slider {
+    background: var(--wdw-primary);
+}
+
+.umy-wdw-toggle input:checked+.umy-wdw-toggle-slider::before {
+    transform: translateX(20px);
+}
+
+.umy-wdw-toggle input:focus+.umy-wdw-toggle-slider {
+    box-shadow: 0 0 0 3px var(--wdw-primary-light);
+}
+
+/* ================================================
+   BUTTONS
+   ================================================ */
+.umy-wdw-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border: none;
+    border-radius: var(--wdw-radius-md);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--wdw-transition-fast);
+}
+
+.umy-wdw-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.umy-wdw-btn-primary {
+    background: var(--wdw-gray-900);
+    color: var(--wdw-white);
+    box-shadow: var(--wdw-shadow-sm);
+}
+
+.umy-wdw-btn-primary:hover {
+    background: var(--wdw-gray-800);
+    transform: translateY(-1px);
+    box-shadow: var(--wdw-shadow-md);
+}
+
+.umy-wdw-btn-primary:active {
+    transform: translateY(0);
+}
+
+.umy-wdw-btn-success {
+    background: var(--wdw-success);
+    color: var(--wdw-white);
+    padding: 8px 14px;
+    font-size: 13px;
+    border: 1px solid var(--wdw-success);
+}
+
+.umy-wdw-btn-success:hover,
+.umy-wdw-btn-success:focus,
+.umy-wdw-btn-success:active {
+    background: #059669;
+    color: var(--wdw-white);
+    border-color: #059669;
+    outline: none;
+    box-shadow: none;
+}
+
+/* ================================================
+   MULTISITE OPTION
+   ================================================ */
+.umy-wdw-multisite-option {
+    padding: 16px 24px;
+    background: var(--wdw-gray-50);
+    border-top: 1px solid var(--wdw-gray-100);
+}
+
+.umy-wdw-checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--wdw-gray-700);
+}
+
+.umy-wdw-checkbox-label input[type="checkbox"] {
+    display: none;
+}
+
+.umy-wdw-checkbox-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--wdw-gray-300);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--wdw-transition-fast);
+    flex-shrink: 0;
+}
+
+.umy-wdw-checkbox-label input:checked+.umy-wdw-checkbox-box {
+    background: var(--wdw-primary);
+    border-color: var(--wdw-primary);
+}
+
+.umy-wdw-checkbox-label input:checked+.umy-wdw-checkbox-box::after {
+    content: '';
+    width: 4px;
+    height: 8px;
+    border: solid var(--wdw-white);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
+
+/* ================================================
+   INFO BOX
+   ================================================ */
+.umy-wdw-info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: var(--wdw-primary-light);
+    border: 1px solid #bfdbfe;
+    border-radius: var(--wdw-radius-md);
+    color: #1e40af;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.umy-wdw-info-box svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+}
+
+/* ================================================
+   RESPONSIVE DESIGN
+   ================================================ */
+@media screen and (max-width: 782px) {
+    .umy-wdw-admin-wrap {
+        margin: 16px;
+        padding: 0;
+    }
+
+    .umy-wdw-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .umy-wdw-card {
+        border-radius: var(--wdw-radius-lg);
+    }
+
+    .umy-wdw-table thead {
+        display: none;
+    }
+
+    .umy-wdw-table tbody tr {
+        display: block;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--wdw-gray-200);
+    }
+
+    .umy-wdw-table tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    .umy-wdw-table tbody td {
+        display: block;
+        padding: 8px 0;
+        border: none;
+    }
+
+    .umy-wdw-table tbody td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--wdw-gray-500);
+        margin-bottom: 6px;
+    }
+
+    .umy-wdw-select-wrap {
+        max-width: 100%;
+    }
+}
+
+/* ================================================
+   ANIMATIONS
+   ================================================ */
+@keyframes wdw-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.umy-wdw-notice {
+    animation: wdw-fade-in 0.3s ease-out;
+}
+
+/* Hide default WP submit button */
+.umy-wdw-admin-wrap .submit {
+    display: none;
+}

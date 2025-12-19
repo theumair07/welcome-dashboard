@@ -1,0 +1,88 @@
+# Copyright (C) 2024 Umair Khan
+# This file is distributed under the same license as the Welcome Dashboard plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Welcome Dashboard 1.0.0\n"
+"Report-Msgid-Bugs-To: https://umairyousafzai.com/\n"
+"POT-Creation-Date: 2024-12-19T00:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: welcome-dashboard\n"
+
+#: classes/class-umy-wdw-admin.php
+msgid "Welcome Dashboard"
+msgstr ""
+
+#: classes/class-umy-wdw-admin.php
+msgid "Dashboard Welcome Content"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "Customize your WordPress dashboard with any page builder."
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "successfully set as custom Dashboard."
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "View Dashboard"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "Please note, changing the template in subsite will override the main settings."
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "User Role"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "Page / Template"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "Dismissible"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "— Select —"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "Pages"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "Elementor Templates"
+msgstr ""
+
+#. translators: %s: User role name
+#: includes/admin-settings.php
+msgid "Toggle dismissible for %s"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "Hide settings from network subsites"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "Save Changes"
+msgstr ""
+
+#: includes/admin-settings.php
+msgid "Create a page with any WordPress page builder, then select it here to display as the welcome panel on your dashboard."
+msgstr ""
+
+#: includes/welcome-panel.php
+msgid "Dismiss"
+msgstr ""
+
+#: welcome-dashboard.php
+msgid "Settings"
+msgstr ""
