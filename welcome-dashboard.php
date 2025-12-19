@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Welcome Dashboard
- * Plugin URI: https://umairyousafzai.com/
+ * Plugin URI: https://github.com/theumair07/welcome-dashboard
  * Description: Transform the boring WordPress dashboard into a beautiful design experience. Compatible with any page builder.
  * Version: 1.0.0
  * Requires at least: 5.2
