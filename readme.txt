@@ -79,7 +79,7 @@ Yes, you can enable/disable the dismissible option for each user role individual
 = 1.0.0 =
 * Initial release
 * Role-based dashboard pages
-* Elementor, Gutenberg, and Classic Editor support
+* Elementor, Gutenberg, Divi, Bricks Builder and Classic Editor support
 * Multisite support
 * Dismissible option per role
 * Translation ready
