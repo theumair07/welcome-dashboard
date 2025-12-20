@@ -48,7 +48,7 @@ final class UMY_WDW_Plugin {
 	 */
 	public function __construct()
 	{
-		add_action( 'plugins_loaded', array( $this, 'loader' ) );
+		add_action( 'init', array( $this, 'loader' ) );
 	}
 
 	/**

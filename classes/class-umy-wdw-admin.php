@@ -261,77 +261,102 @@ final class Admin {
 
 				// Output iframe embed with styles
 				?>
-				<style>
-					/* Hide WordPress Dashboard title */
-					#wpbody-content > .wrap > h1,
-					#wpbody-content h1.open,
-					.wrap > h1:first-child {
-						display: none !important;
-					}
-					.umy-wdw-embed-container {
-						width: 100%;
-						min-height: 400px;
-						background: #fff;
-						border-radius: 0;
-						overflow: hidden;
-						box-shadow: none;
-					}
-					.umy-wdw-embed-iframe {
-						width: 100%;
-						min-height: 400px;
-						border: none;
-						display: block;
-					}
-					.welcome-panel {
-						padding: 0 !important;
-						background: transparent !important;
-						border: none !important;
-						box-shadow: none !important;
-						border-radius: 0 !important;
-					}
-					.welcome-panel::before,
-					.welcome-panel::after {
-						display: none !important;
-					}
-					<?php if ( ! $dismissible ) : ?>
-					.welcome-panel .welcome-panel-close {
-						display: none !important;
-					}
-					<?php else : ?>
-					/* Dismiss button styling - simple pink background with red text */
-					.welcome-panel .welcome-panel-close {
-						background: #fee2e2 !important;
-						color: #ef4444 !important;
-						padding: 4px 10px !important;
-						border-radius: 4px !important;
-						text-decoration: none !important;
-						font-size: 12px !important;
-						transition: all 0.2s ease, opacity 0.15s ease-in-out !important;
-						opacity: 0 !important;
-						pointer-events: none !important;
-					}
-					.welcome-panel .welcome-panel-close.umy-wdw-visible {
-						opacity: 1 !important;
-						pointer-events: auto !important;
-					}
-					.welcome-panel .welcome-panel-close:hover {
-						background: #fecaca !important;
-					}
-					.welcome-panel .welcome-panel-close::before {
-						display: none !important;
-					}
-					<?php endif; ?>
-				</style>
-				<div class="umy-wdw-embed-container" id="umy-wdw-embed-wrapper" style="opacity: 0; transition: opacity 0.15s ease-in-out;">
-					<iframe 
-						id="umy-wdw-page-embed" 
-						class="umy-wdw-embed-iframe" 
-						src="<?php echo esc_url( $page_url ); ?>"
-						scrolling="no"
-						title="<?php esc_attr_e( 'Dashboard Welcome Content', 'welcome-dashboard' ); ?>"
-					></iframe>
-				</div>
-				<?php
+<style>
+/* Hide WordPress Dashboard title */
+#wpbody-content>.wrap>h1,
+#wpbody-content h1.open,
+.wrap>h1:first-child {
+    display: none !important;
+}
+
+.umy-wdw-embed-container {
+    width: 100%;
+    min-height: 400px;
+    background: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.umy-wdw-embed-iframe {
+    width: 100%;
+    min-height: 400px;
+    border: none;
+    display: block;
+}
+
+.welcome-panel {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* Hide empty dashboard widget placeholder boxes completely */
+#dashboard-widgets .meta-box-sortables.empty-container,
+#dashboard-widgets .postbox-container .empty-container {
+    border: none !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+}
+
+/* Also hide when widgets are present but hidden */
+#dashboard-widgets .meta-box-sortables:not(:has(.postbox:not(.hide-if-js))) {
+    border: none !important;
+    min-height: 0 !important;
+}
+
+.welcome-panel::before,
+.welcome-panel::after {
+    display: none !important;
+}
+
+<?php if ( ! $dismissible) : ?>.welcome-panel .welcome-panel-close {
+    display: none !important;
+}
+
+<?php else : ?>
+
+/* Dismiss button styling - simple pink background with red text */
+.welcome-panel .welcome-panel-close {
+    background: #fee2e2 !important;
+    color: #ef4444 !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-size: 12px !important;
+    transition: all 0.2s ease, opacity 0.15s ease-in-out !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.welcome-panel .welcome-panel-close.umy-wdw-visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.welcome-panel .welcome-panel-close:hover {
+    background: #fecaca !important;
+}
+
+.welcome-panel .welcome-panel-close::before {
+    display: none !important;
+}
+
+<?php endif;
+?>
+</style>
+<div class="umy-wdw-embed-container" id="umy-wdw-embed-wrapper"
+    style="opacity: 0; transition: opacity 0.15s ease-in-out;">
+    <iframe id="umy-wdw-page-embed" class="umy-wdw-embed-iframe" src="<?php echo esc_url( $page_url ); ?>"
+        scrolling="no" title="<?php esc_attr_e( 'Dashboard Welcome Content', 'welcome-dashboard' ); ?>"></iframe>
+</div>
+<?php
 				// Enqueue embed handler script
 				wp_enqueue_script(
 					'umy-wdw-embed-handler',
