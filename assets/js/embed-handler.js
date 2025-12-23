@@ -16,26 +16,45 @@
 		return;
 	}
 
+	var resizeTimeout;
+
 	/**
-	 * Auto-resize iframe based on content height
+	 * Smart auto-resize iframe based on content height.
+	 * Uses multiple properties for robust height calculation.
 	 */
 	function resizeIframe() {
-		try {
-			var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-			if (iframeDoc && iframeDoc.body) {
-				var height = iframeDoc.body.scrollHeight;
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(function () {
+			try {
+				var doc = iframe.contentDocument || (iframe.contentWindow ? iframe.contentWindow.document : null);
+				if (!doc) {
+					return;
+				}
+
+				var body = doc.body;
+				var html = doc.documentElement;
+
+				var height = Math.max(
+					body ? body.scrollHeight : 0,
+					body ? body.offsetHeight : 0,
+					html ? html.clientHeight : 0,
+					html ? html.scrollHeight : 0,
+					html ? html.offsetHeight : 0
+				);
+
 				if (height > 0) {
 					iframe.style.height = height + 'px';
 				}
+			} catch (e) {
+				// Cross-origin fallback
+				iframe.style.height = '80vh';
 			}
-		} catch (e) {
-			// Cross-origin, use default height
-			iframe.style.height = '500px';
-		}
+		}, 50);
 	}
 
 	iframe.addEventListener('load', function () {
-		// Fade in the entire container (hides white flash)
+		// Stop shimmer animation and fade in
+		container.classList.add('umy-wdw-loaded');
 		container.style.opacity = '1';
 
 		// Also fade in the dismiss button simultaneously
@@ -44,10 +63,24 @@
 			dismissBtn.classList.add('umy-wdw-visible');
 		}
 
+		// Initial resize
 		resizeIframe();
-		// Resize again after a short delay for dynamic content
-		setTimeout(resizeIframe, 500);
-		setTimeout(resizeIframe, 1500);
+
+		// Attach MutationObserver for dynamic content changes
+		try {
+			var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+			if (iframeDoc && iframeDoc.body) {
+				var observer = new MutationObserver(resizeIframe);
+				observer.observe(iframeDoc.body, {
+					childList: true,
+					subtree: true,
+					attributes: true
+				});
+			}
+		} catch (e) {
+			// Cross-origin: fallback to interval-based resize
+			setInterval(resizeIframe, 1000);
+		}
 	});
 
 	// Resize on window resize

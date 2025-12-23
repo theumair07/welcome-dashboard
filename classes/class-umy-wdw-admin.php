@@ -262,6 +262,12 @@ final class Admin {
 				// Output iframe embed with styles
 				?>
 <style>
+/* Shimmer loading animation */
+@keyframes umy-wdw-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
 /* Hide WordPress Dashboard title */
 #wpbody-content>.wrap>h1,
 #wpbody-content h1.open,
@@ -272,10 +278,17 @@ final class Admin {
 .umy-wdw-embed-container {
     width: 100%;
     min-height: 400px;
-    background: transparent;
+    background: linear-gradient(90deg, #f0f0f1 25%, #e8e8e9 50%, #f0f0f1 75%);
+    background-size: 200% 100%;
+    animation: umy-wdw-shimmer 1.5s ease-in-out infinite;
     border-radius: 0;
     overflow: hidden;
     box-shadow: none;
+}
+
+.umy-wdw-embed-container.umy-wdw-loaded {
+    background: transparent;
+    animation: none;
 }
 
 .umy-wdw-embed-iframe {
@@ -352,7 +365,7 @@ final class Admin {
 ?>
 </style>
 <div class="umy-wdw-embed-container" id="umy-wdw-embed-wrapper"
-    style="opacity: 0; transition: opacity 0.15s ease-in-out;">
+    style="opacity: 0; transition: opacity 0.3s ease-in-out;">
     <iframe id="umy-wdw-page-embed" class="umy-wdw-embed-iframe" src="<?php echo esc_url( $page_url ); ?>"
         scrolling="no" title="<?php esc_attr_e( 'Dashboard Welcome Content', 'welcome-dashboard' ); ?>"></iframe>
 </div>

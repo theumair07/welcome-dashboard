@@ -223,7 +223,7 @@ article,
 
 /* Clean body */
 body {
-    background: #fff !important;
+    background: transparent !important;
     overflow-x: hidden;
 }
 
